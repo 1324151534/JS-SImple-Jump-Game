@@ -1,0 +1,129 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+button {
+    border: none;
+}
+
+input {
+    outline: none;
+}
+
+.ground {
+    position: absolute;
+    bottom: 0px;
+    height: 200px;
+    width: 100%;
+    background-color: grey;
+    color: grey;
+    transition-duration: 0.4s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 50px;
+    font-weight: lighter;
+}
+
+.ground:hover {
+    color: #CCCCCC;
+}
+
+.player {
+    background-color: rgb(185, 233, 240);
+    color: rgb(185, 233, 240);
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    transition-duration: 0.08s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.player:hover {
+    color: rgb(66, 102, 107);
+}
+
+.control {
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    width: 200px;
+    height: auto;
+    background-color: rgb(235, 235, 235);
+    border-color: gainsboro;
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 20px;
+    padding: 20px;
+    transition-duration: 0.4s;
+}
+
+.control:hover {
+    box-shadow: 0 0px 16px 0 rgba(0, 0, 0, 0.24), 0 12px 24px 0 rgba(0, 0, 0, 0.19);
+}
+
+.title {
+    font-size: 30px;
+    font-weight: lighter;
+}
+
+.second-title {
+    font-size: 12px;
+    color: #515151;
+}
+
+.subtitle {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.settingbox {
+    width: 200px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.input-text {
+    float: left;
+    width: 60%;
+    height: 30px;
+    border-color: #CCCCCC;
+    border-width: 2px;
+    border-style: solid;
+    padding-left: 10px;
+    margin-right: 10px;
+    border-radius: 50px;
+    transition-duration: 0.1s;
+}
+
+.input-text:focus {
+    border-color: #474747;
+}
+
+
+.btn {
+    float: right;
+    width: 30%;
+    height: 35px;
+    margin: none;
+    border-radius: 50px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #3f3f3f;
+    transition-duration: 0.1s;
+}
+
+.btn:hover {
+    background-color: #3f3f3f;
+    color: white;
+}
+
+.btn:active {
+    background-color: #666666;
+    color: white;
+}
