@@ -7,6 +7,11 @@ var maxDropSpeed = 40;
 var maxJumpHeight = 150;
 var maxSpeed = 30;
 
+var movement = {
+    "left" : false,
+    "right" : false
+}
+
 var canJump = 2;
 var isDrop = false;
 
@@ -41,18 +46,39 @@ function getGroundHeight() {
 
 playerDrop();
 
+setInterval(move, 25);
 window.onkeydown = async function (event) {
     console.log("[LOG] Pressed Key: " + event.keyCode);
     if(event.keyCode == 68 || event.keyCode == 39) {
-        player.style.left = player.getBoundingClientRect().left + maxSpeed + "px";
+        movement.right = true;
     }
-    else if(event.keyCode == 65 || event.keyCode == 37) {
-        player.style.left = player.getBoundingClientRect().left - maxSpeed + "px";
+    if(event.keyCode == 65 || event.keyCode == 37) {
+        movement.left = true;
     }
-    else if(event.keyCode == 32 || event.keyCode == 87 || event.keyCode == 38) {
+    if(event.keyCode == 32 || event.keyCode == 87 || event.keyCode == 38) {
         playerJump();
     }
     console.log("Status: isDrop = " + isDrop + " canJump = " + canJump + " maxDropSpeed = " + maxDropSpeed + " maxJumpHeight = " + maxJumpHeight + " maxSpeed = " + maxSpeed);
+}
+
+window.onkeyup = async function (event) {
+    console.log("[LOG] Unpressed Key: " + event.keyCode);
+    if(event.keyCode == 68 || event.keyCode == 39) {
+        movement.right = false;
+    }
+    if(event.keyCode == 65 || event.keyCode == 37) {
+        movement.left = false;
+    }
+    console.log("Status: isDrop = " + isDrop + " canJump = " + canJump + " maxDropSpeed = " + maxDropSpeed + " maxJumpHeight = " + maxJumpHeight + " maxSpeed = " + maxSpeed);
+}
+
+function move() {
+    if(movement.right) {
+        player.style.left = player.getBoundingClientRect().left + maxSpeed + "px";
+    }
+    if(movement.left) {
+        player.style.left = player.getBoundingClientRect().left - maxSpeed + "px";
+    }
 }
 
 document.getElementById('setmaxjump').addEventListener('click', () => {
