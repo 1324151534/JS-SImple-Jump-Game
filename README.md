@@ -1,4 +1,4 @@
-# JS-SImple-Jump-Game
+# JS-Simple-Jump-Game
 A simple game with adjustable settings by simple JS
 
 Usage:
