@@ -6,6 +6,7 @@ var maxJump = 2;
 var maxDropSpeed = 40;
 var maxJumpHeight = 150;
 var maxSpeed = 30;
+var maxJumpSpeed = 80;
 
 var movement = {
     "left" : false,
@@ -35,7 +36,7 @@ async function playerJump() {
     var height_now = getGroundHeight();
     while(getGroundHeight() > height_now - maxJumpHeight && canJump >= 0) {
         await sleep(5);
-        player.style.top = player.getBoundingClientRect().top - 80 + "px";
+        player.style.top = player.getBoundingClientRect().top - maxJumpSpeed + "px";
     }
     playerDrop();
 }
@@ -58,7 +59,7 @@ window.onkeydown = async function (event) {
     if(event.keyCode == 32 || event.keyCode == 87 || event.keyCode == 38) {
         playerJump();
     }
-    console.log("Status: isDrop = " + isDrop + " canJump = " + canJump + " maxDropSpeed = " + maxDropSpeed + " maxJumpHeight = " + maxJumpHeight + " maxSpeed = " + maxSpeed);
+    console.log("Status: isDrop = " + isDrop + " canJump = " + canJump + " maxDropSpeed = " + maxDropSpeed + " maxJumpHeight = " + maxJumpHeight + " maxJumpSpeed = " + maxJumpSpeed + " maxSpeed = " + maxSpeed);
 }
 
 window.onkeyup = async function (event) {
@@ -69,7 +70,6 @@ window.onkeyup = async function (event) {
     if(event.keyCode == 65 || event.keyCode == 37) {
         movement.left = false;
     }
-    console.log("Status: isDrop = " + isDrop + " canJump = " + canJump + " maxDropSpeed = " + maxDropSpeed + " maxJumpHeight = " + maxJumpHeight + " maxSpeed = " + maxSpeed);
 }
 
 function move() {
@@ -96,6 +96,12 @@ document.getElementById('setmaxdrop').addEventListener('click', () => {
 document.getElementById('setmaxheight').addEventListener('click', () => {
     if(document.getElementById('mheight_ipt').value){
         maxJumpHeight = Number(document.getElementById('mheight_ipt').value);
+    }
+})
+
+document.getElementById('setjumpspeed').addEventListener('click', () => {
+    if(document.getElementById('mjspeed_ipt').value){
+        maxJumpSpeed = Number(document.getElementById('mjspeed_ipt').value);
     }
 })
 
